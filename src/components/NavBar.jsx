@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 function NavBar(){
     let user = {name:"heeh" , url:"https://avatars.githubusercontent.com/u/84065638?v=4"}
+    // let user = {}
     return (
        <nav className="navbar">
            <div className="navbar-brand">
