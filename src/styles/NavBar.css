@@ -1,0 +1,146 @@
+/* NavBar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 16px;
+    padding: 20px 40px;
+    margin: 10px auto 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: sticky;
+    top: 10px;
+    z-index: 999;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.navbar-brand a {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #caa1dc, #c471ed, #9561e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand a:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 8px #caa1dc, 0 0 16px #9561e8;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar-links a {
+    color: #e0e0e0;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar-links a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.logged-in {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.logged-in:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.logged-in img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ffffff55;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.logged-in img:hover {
+    transform: scale(1.1);
+}
+
+.logged-in p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+        border-radius: 12px;
+        margin: 10px;
+    }
+
+    .navbar-brand a {
+        font-size: 24px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .navbar-links a {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-radius: 8px;
+    }
+
+    .logged-in {
+        margin-top: 10px;
+        padding: 8px 12px;
+        gap: 10px;
+    }
+
+    .logged-in img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logged-in p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .navbar-brand a {
+        font-size: 20px;
+    }
+
+    .navbar-links a {
+        font-size: 16px;
+    }
+}
