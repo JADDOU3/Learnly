@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
+
 import '../styles/LoginForm.css'
 
-function LoginForm() {
+function LoginForm({onToggleForm}) {
     return (
         <div className="login-form">
             <h2>Welcome back</h2>
@@ -30,7 +30,7 @@ function LoginForm() {
             </form>
 
             <div className="signup-section">
-                Don't have an account? <Link className="signup-link" to="/signup">Sign up</Link>
+                Don't have an account? <span className="signup-link" onClick={onToggleForm}>Sign up</span>
             </div>
 
             <div className="social-divider">or continue with</div>

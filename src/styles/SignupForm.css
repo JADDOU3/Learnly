@@ -1,0 +1,164 @@
+/* SignupForm.css */
+
+.signup-form {
+    max-width: 420px;
+    margin: 8vh auto;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.signup-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #6eebc9, #1ca086);
+}
+
+/* Centered headings */
+.signup-form .header-group {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.signup-form h2 {
+    color: #2b2d42;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.signup-form p.subtitle {
+    color: #8d99ae;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Form elements */
+.signup-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form .input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form input[type="date"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #2d3748;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus,
+.signup-form input[type="password"]:focus,
+.signup-form input[type="date"]:focus {
+    outline: none;
+    border-color: #6eebc9;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(110, 235, 201, 0.15);
+}
+
+/* Date input customization */
+.signup-form input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.5);
+}
+
+.signup-form input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    filter: invert(0.3);
+}
+
+/* Submit Button */
+.signup-form button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #6eebc9;
+    color: #2b2d42;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1rem;
+}
+
+.signup-form button:hover {
+    background: #5ed5b5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(110, 235, 201, 0.3);
+}
+
+/* AuthPage link section */
+.signup-form .login-section {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+.signup-form .login-link {
+    color: #6eebc9;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 0.3rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.signup-form .login-link:hover {
+    color: #1ca086;
+}
+
+.signup-form .login-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #6eebc9;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.signup-form .login-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .signup-form {
+        padding: 2rem 1.5rem;
+        margin: 4vh auto;
+        border-radius: 12px;
+    }
+}
