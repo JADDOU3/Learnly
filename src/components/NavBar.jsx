@@ -1,5 +1,5 @@
 import '../styles/NavBar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function NavBar(){
@@ -19,10 +19,17 @@ function NavBar(){
 }
 
 function Login({user}){
+    const navigate = useNavigate()
     return (
-        <div className="logged-in">
-            <img src={user.url} alt="User img" />
-            <p>{user.name}</p>
+        <div className="user-dropdown">
+            <div onClick={() => navigate("/profile")} className="logged-in">
+                <img src={user.url} alt="User img" />
+                <p>{user.name}</p>
+            </div>
+            <div className="dropdown-menu">
+             <Link to="/profile">Profile</Link>
+             <Link to="/">Logout</Link>
+             </div>
         </div>
     )
 }

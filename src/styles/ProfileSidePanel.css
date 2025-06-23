@@ -1,0 +1,139 @@
+/* ProfileSidePanel.css */
+.profile-side-panel {
+    width: 280px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+    padding: 24px 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.summarized-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px 24px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.summarized-profile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05);
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
+    letter-spacing: -0.2px;
+}
+
+.profile-title {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.section {
+    padding: 6px 0;
+}
+
+.section:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    color: #334155;
+}
+
+.menu-item:hover {
+    background: #f8fafc;
+}
+
+.menu-item:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #6eebc9;
+    border-radius: 0 3px 3px 0;
+}
+
+.menu-item i {
+    width: 20px;
+    font-size: 14px;
+    margin-right: 16px;
+    color: #64748b;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover i {
+    transform: scale(1.1);
+    color: #6eebc9;
+}
+
+.menu-item p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.menu-item.logout {
+    color: #ef4444;
+}
+
+.menu-item.logout i {
+    color: #ef4444;
+}
+
+.menu-item.logout:hover {
+    background: rgba(239, 68, 68, 0.05);
+}
+
+/* Add subtle animation to sections */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.section:nth-child(2) { animation-delay: 0.1s; }
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
