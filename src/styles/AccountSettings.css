@@ -1,0 +1,147 @@
+.profile-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    animation: fadeIn 0.4s ease forwards;
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a202c;
+    letter-spacing: -0.2px;
+    text-align: left;
+}
+
+.details-section {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.details-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 8px;
+    letter-spacing: -0.1px;
+}
+
+.details-section p {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.details-section input[type="email"],
+.details-section input[type="password"] {
+    width: 97%;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+    text-align: left;
+}
+
+.details-section input:focus {
+    outline: none;
+    border-color: #6eebc9;
+    box-shadow: 0 0 0 3px rgba(110, 235, 201, 0.2);
+    background-color: white;
+}
+
+.details-section button {
+    margin-top: 12px;
+    background: #6eebc9;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.details-section button:hover {
+    background: #5ed5b7;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(110, 235, 201, 0.3);
+}
+
+.danger-zone {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.danger-zone h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #dc2626;
+    margin-bottom: 16px;
+}
+
+.danger-zone-card {
+    background-color: #fff1f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 20px;
+    color: #7f1d1d;
+    text-align: left;
+}
+
+.danger-zone-card p {
+    font-size: 13px;
+    margin-bottom: 12px;
+    color: #7f1d1d;
+}
+
+.danger-zone-card ul {
+    margin-left: 20px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    padding-left: 16px;
+}
+
+.danger-zone-card li {
+    margin-bottom: 6px;
+}
+
+.danger-zone-card button {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.danger-zone-card button:hover {
+    background: #dc2626;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
