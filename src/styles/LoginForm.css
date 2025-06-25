@@ -2,7 +2,7 @@
 
 .login-form {
     max-width: 420px;
-    margin: 8vh auto;
+    margin: 8rem auto;
     padding: 2.5rem;
     background: #fff;
     border-radius: 16px;
@@ -223,9 +223,10 @@
 
 .login-form .social-icon:hover {
     border-color: #6eebc9;
-    color: #6eebc9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    color: #ffffff;
+    background: linear-gradient(135deg, #1ca086, #6eebc9);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(110, 235, 201, 0.3);
 }
 
 /* Responsive */
