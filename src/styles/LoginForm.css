@@ -1,12 +1,10 @@
 /* LoginForm.css */
+@import url("./Global.css");
 
 .login-form {
     max-width: 420px;
     margin: 8rem auto;
     padding: 2.5rem;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
 }
@@ -21,7 +19,6 @@
     background: linear-gradient(to bottom, #6eebc9, #1ca086);
 }
 
-/* Centered headings */
 .login-form .header-group {
     text-align: center;
     margin-bottom: 2rem;
@@ -32,6 +29,7 @@
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
     font-weight: 600;
+    text-align: center;
 }
 
 .login-form p.subtitle {
@@ -39,9 +37,9 @@
     font-size: 0.95rem;
     margin: 0;
     padding-bottom: 2rem;
+    text-align: center;
 }
 
-/* Left-aligned form elements */
 .login-form .input-group {
     margin-bottom: 1.5rem;
     text-align: left;
@@ -55,28 +53,6 @@
     font-weight: 500;
 }
 
-.login-form input[type="email"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background: #f8fafc;
-    color: #2d3748;
-    font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-sizing: border-box;
-}
-
-.login-form input[type="email"]:focus,
-.login-form input[type="password"]:focus {
-    outline: none;
-    border-color: #6eebc9;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(110, 235, 201, 0.15);
-}
-
-/* Checkbox and Forgot Password Row */
 .login-form .form-options {
     display: flex;
     justify-content: space-between;
@@ -121,28 +97,12 @@
     text-decoration: underline;
 }
 
-/* Submit Button */
 .login-form button {
     width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: #6eebc9;
-    color: #2b2d42;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 1.5rem;
 }
 
-.login-form button:hover {
-    background: #5ed5b5;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(110, 235, 201, 0.3);
-}
 
-/* Centered signup section */
 .login-form .signup-section {
     text-align: center;
     margin: 1.5rem 0;
@@ -181,7 +141,6 @@
     transform-origin: left;
 }
 
-/* Social Divider */
 .login-form .social-divider {
     display: flex;
     align-items: center;
@@ -199,7 +158,6 @@
     margin: 0 1rem;
 }
 
-/* Social Icons */
 .login-form .social-icons {
     display: flex;
     justify-content: center;
@@ -229,7 +187,6 @@
     box-shadow: 0 8px 20px rgba(110, 235, 201, 0.3);
 }
 
-/* Responsive */
 @media (max-width: 480px) {
     .login-form {
         padding: 2rem 1.5rem;

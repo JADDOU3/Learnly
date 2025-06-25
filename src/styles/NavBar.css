@@ -1,4 +1,6 @@
 /* NavBar.css */
+@import url("./Global.css");
+
 .navbar {
     position: fixed;
     top: 0;
@@ -24,7 +26,9 @@
 }
 
 .navbar-brand a:hover {
-    color: #6eebc9;
+    background: linear-gradient(to left, #1ca086, #6eebc9);
+    background-clip: text;
+    color: transparent;
 }
 
 .navbar-brand a::after {
@@ -83,12 +87,10 @@
     transform-origin: left;
 }
 
-/* Logged in container */
 .logged-in-container {
     position: relative;
 }
 
-/* Logged in user styles */
 .logged-in {
     display: flex;
     align-items: center;
@@ -142,7 +144,6 @@
     transform: scaleX(1);
 }
 
-/* Dropdown styles */
 .dropdown-menu {
     position: absolute;
     top: calc(100% + 8px);
@@ -194,7 +195,6 @@
     border-bottom-right-radius: 8px;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
     .navbar {
         padding: 1rem 1.5rem;

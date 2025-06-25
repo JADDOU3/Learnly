@@ -3,19 +3,19 @@ import '../styles/LoginForm.css'
 
 function LoginForm({onToggleForm}) {
     return (
-        <div className="login-form">
+        <div className="card login-form">
             <h2>Welcome back</h2>
             <p className="subtitle">Please enter your details to sign in</p>
 
             <form>
                 <div className="input-group">
                     <label>Email</label>
-                    <input type="email" placeholder="Enter your email" />
+                    <input className="input-field" type="email" placeholder="Enter your email" />
                 </div>
 
                 <div className="input-group">
                     <label>Password</label>
-                    <input type="password" placeholder="Enter your password" />
+                    <input className="input-field" type="password" placeholder="Enter your password" />
                 </div>
 
                 <div className="form-options">
@@ -26,7 +26,7 @@ function LoginForm({onToggleForm}) {
                     <a className="forgot-password" href="#">Forgot password?</a>
                 </div>
 
-                <button type="submit">Sign In</button>
+                <button className="primary-btn" type="submit">Sign In</button>
             </form>
 
             <div className="signup-section">

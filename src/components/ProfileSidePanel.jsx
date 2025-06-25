@@ -7,7 +7,7 @@ function ProfileSidePanel({setCurretCard}) {
         title:"Full Stack Developer"
     }
     return(
-        <div className="profile-side-panel">
+        <div className="card profile-side-panel">
             <div className="summarized-profile">
                 <img src={user.url} alt="User" className="profile-avatar" />
                 <h2 className="profile-name">{user.name}</h2>

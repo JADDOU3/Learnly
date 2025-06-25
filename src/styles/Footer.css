@@ -1,4 +1,5 @@
-/* Footer.css - Enhanced Modern Design */
+/* Footer.css */
+@import url("./Global.css");
 
 .footer-container {
     width: 100%;
@@ -25,7 +26,6 @@
     left: 0;
     right: 0;
     height: 4px;
-
     background: linear-gradient(to left, #1ca086, #6eebc9);
 }
 
@@ -45,7 +45,6 @@
     left: 0;
     width: 35px;
     height: 3px;
-    /*background: linear-gradient(to left, #6eebc9, #1ca086);*/
     border-radius: 3px;
 }
 
@@ -83,7 +82,6 @@
     font-size: 1.05rem;
 }
 
-/* Newsletter section */
 .newsletter {
     margin-top: 1.5rem;
 }
@@ -136,7 +134,6 @@
     box-shadow: 0 6px 15px rgba(110, 235, 201, 0.3);
 }
 
-/* Navigation */
 .footer-Navigation {
     display: flex;
     flex-direction: column;
@@ -180,7 +177,6 @@
     transform-origin: left;
 }
 
-/* Contact section */
 .footer-get-in-touch {
     padding-left: 1.5rem;
 }
@@ -230,7 +226,6 @@
     font-weight: 600;
 }
 
-/* Copyright and Social */
 .footer-copyright {
     flex-basis: 100%;
     border-top: 1px solid rgba(237, 242, 247, 0.6);
@@ -285,7 +280,6 @@
     box-shadow: 0 8px 20px rgba(110, 235, 201, 0.3);
 }
 
-/* Decorative elements */
 .footer-decoration {
     position: absolute;
     opacity: 0.03;
@@ -308,7 +302,6 @@
     color: #6eebc9;
 }
 
-/* Responsive */
 @media (max-width: 992px) {
     .footer-container {
         gap: 2rem;
