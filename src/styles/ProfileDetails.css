@@ -1,0 +1,149 @@
+/* ProfileDetails.css */
+.profile-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a202c;
+    letter-spacing: -0.2px;
+}
+
+.profile-header button {
+    background: #6eebc9;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.profile-header button:hover {
+    background: #5ed5b7;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(110, 235, 201, 0.3);
+}
+
+.picture-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.picture-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    background-color: #f1f5f9;
+    transition: transform 0.3s ease;
+}
+
+.picture-section img:hover {
+    transform: scale(1.05);
+}
+
+.picture-section button {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.picture-section button:hover {
+    background: #f8fafc;
+    color: #1a202c;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.details-section, .social-link-section {
+    margin-bottom: 24px;
+}
+
+.details-section h2, .social-link-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 16px;
+    letter-spacing: -0.1px;
+}
+
+.details-item, .social-link {
+    margin-bottom: 16px;
+}
+
+.details-item label {
+    text-align: left;
+    display: block;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-link i {
+    font-size: 16px;
+    color: #64748b;
+    width: 24px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 97%;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #6eebc9;
+    box-shadow: 0 0 0 3px rgba(110, 235, 201, 0.2);
+    background-color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
