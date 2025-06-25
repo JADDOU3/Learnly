@@ -1,0 +1,35 @@
+.profile-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding-left: 0;
+    min-height: 100vh;
+    margin-top :5rem;
+}
+
+.profile-layout > .profile-side-panel {
+    width: 17vw;
+    flex-shrink: 0;
+
+}
+
+.profile-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px 0;
+}
+
+.profile-content > * {
+    width: 65vw;
+
+    max-width: none;
+}
+
+.profile-card *{
+    margin-left: 1rem;
+}
+
+
+
