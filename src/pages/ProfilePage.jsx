@@ -2,6 +2,7 @@ import ProfileSidePanel from "../components/ProfileSidePanel";
 import ProfileDetails from "../components/ProfileDetails";
 import AccountSettings from "../components/AccountSettings";
 import Help from "../components/Help";
+import GradesCard from "../components/GradesCard";
 import {useState} from 'React'
 import '../styles/ProfilePage.css'
 
@@ -14,7 +15,8 @@ function ProfilePage() {
                 <main className="profile-content">
                     { showCard === 1 && <ProfileDetails />}
                     { showCard === 2 && <AccountSettings />}
-                    { showCard === 5 && <Help />}
+                    { showCard === 3 && <GradesCard />}
+                    { showCard === 6 && <Help />}
                 </main>
             </div>
         </div>

@@ -24,22 +24,28 @@ function ProfileSidePanel({setCurretCard}) {
                     <i className="fa-solid fa-envelope"></i>
                     <p>Account Settings</p>
                 </div>
+
+                <div className="menu-item" onClick={() => setCurretCard(3)}>
+                    <i className="fa-solid fa-graduation-cap"></i>
+                    <p>Grades</p>
+                </div>
+
             </div>
 
             <div className="section">
-                <div className="menu-item" onClick={() => setCurretCard(3)}>
+            <div className="menu-item" onClick={() => setCurretCard(4)}>
                     <i className="fa-solid fa-robot"></i>
                     <p>AI Settings</p>
                 </div>
 
-                <div className="menu-item" onClick={() => setCurretCard(4)}>
+                <div className="menu-item" onClick={() => setCurretCard(5)}>
                     <i className="fa-solid fa-location-arrow"></i>
                     <p>Preferred plan</p>
                 </div>
             </div>
 
             <div className="section">
-                <div className="menu-item" onClick={() => setCurretCard(5)}>
+                <div className="menu-item" onClick={() => setCurretCard(6)}>
                     <i className="fa-solid fa-circle-info"></i>
                     <p>Support</p>
                 </div>

@@ -1,0 +1,75 @@
+/* GradeCard.css */
+@import url("./Global.css");
+
+.grades-card {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.grades-card .details-section {
+    margin-bottom: 24px;
+}
+
+.grades-card .add-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.grades-card table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.grades-card thead {
+    background-color: #f8fafc;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.04);
+}
+
+.grades-card th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-medium);
+    letter-spacing: -0.1px;
+}
+
+.grades-card td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.grades-card tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.grades-card tbody tr:hover {
+    background-color: rgba(110, 235, 201, 0.05);
+}
+
+.grades-card .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.grades-card .empty-state p {
+    margin-top: 8px;
+}
+
+.grades-card .grade-cell {
+    font-weight: 600;
+}
+
+.grades-card .grade-A { color: #10b981; }
+.grades-card .grade-B { color: #22c55e; }
+.grades-card .grade-C { color: #f59e0b; }
+.grades-card .grade-D { color: #f5510b; }
+.grades-card .grade-F { color: #ef4444; }
