@@ -88,6 +88,7 @@
 
 .signup-form .login-link:hover {
     color: #1ca086;
+    cursor: pointer;
 }
 
 .signup-form .login-link::after {
