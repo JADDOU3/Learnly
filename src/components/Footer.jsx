@@ -34,7 +34,7 @@ function Footer(){
                 </div>
             </div>
             <div className="footer-copyright">
-                <p>©2025 Learnly, All rights reserved</p>
+                <p>©2025 Learnly, Jaddou3, All rights reserved</p>
                 <div className="footer-social">
                     <i className="fa-brands fa-linkedin"></i>
                     <i className="fa-brands fa-discord"></i>
