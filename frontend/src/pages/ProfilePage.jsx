@@ -3,7 +3,7 @@ import ProfileDetails from "../components/ProfileDetails";
 import AccountSettings from "../components/AccountSettings";
 import Help from "../components/Help";
 import GradesCard from "../components/GradesCard";
-import {useState} from 'React'
+import {useState} from 'react'
 import '../styles/ProfilePage.css'
 
 function ProfilePage() {
