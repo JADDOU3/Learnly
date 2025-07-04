@@ -66,13 +66,13 @@ const login =  async (e) => {
 
         const data = await response.json();
         if (!response.ok) {
-            alert(data.msg); // display error from backend
+            alert(data.msg);
             return;
         }
         alert("Login Successful");
         localStorage.setItem("token", data.token);
 
-
+        window.location.href = "/";
     }
     catch(error){
         console.log(error);

@@ -1,10 +1,38 @@
 import '../styles/NavBar.css'
 import { Link, useNavigate } from 'react-router-dom'
-
+import { useEffect, useState } from 'react';
 
 function NavBar(){
-    let user = {name:"heeh" , url:"https://avatars.githubusercontent.com/u/84065638?v=4"}
-    // let user = {}
+    const [user, setUser] = useState(null);
+    const getInfo = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/api/students/me", {
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch user info");
+            }
+
+            const data = await response.json();
+            setUser({
+                ...data,
+                url: data.url || data.image || "https://avatars.githubusercontent.com/u/84065638?v=4"
+            });
+        } catch (error) {
+            console.error("Error fetching user info:", error);
+            setUser(null);
+        }
+    };
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            getInfo();
+        }
+    });
+
     return (
        <nav className="navbar">
            <div className="navbar-brand">
@@ -19,7 +47,11 @@ function NavBar(){
 }
 
 function Login({user}){
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const logout = () => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+    };
     return (
         <div className="user-dropdown">
             <div onClick={() => navigate("/profile")} className="logged-in">
@@ -28,7 +60,7 @@ function Login({user}){
             </div>
             <div className="dropdown-menu">
              <Link to="/profile">Profile</Link>
-             <Link to="/">Logout</Link>
+             <span onClick={logout}><Link >Logout</Link></span>
              </div>
         </div>
     )
