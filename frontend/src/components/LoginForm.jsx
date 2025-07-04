@@ -26,7 +26,7 @@ function LoginForm({onToggleForm}) {
                     <a className="forgot-password" href="#">Forgot password?</a>
                 </div>
 
-                <button className="primary-btn" type="submit">Sign In</button>
+                <button className="primary-btn" type="submit" onClick={login}>Sign In</button>
             </form>
 
             <div className="signup-section">
@@ -47,5 +47,36 @@ function LoginForm({onToggleForm}) {
     )
 }
 
+const login =  async (e) => {
+    e.preventDefault();
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+    try{
+        const response = await fetch("http://localhost:5000/api/students/login" , {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                email,
+                password
+            })
+        });
+
+
+        const data = await response.json();
+        if (!response.ok) {
+            alert(data.msg); // display error from backend
+            return;
+        }
+        alert("Login Successful");
+        localStorage.setItem("token", data.token);
+
+
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 export default LoginForm
