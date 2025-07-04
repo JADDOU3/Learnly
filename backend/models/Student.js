@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import studySessionSchema from './StudySession.js';
+import planSchema from './Plan.js';
 
 const StudentSchema = new mongoose.Schema(
     {
@@ -21,8 +23,12 @@ const StudentSchema = new mongoose.Schema(
         image:{
             type: String,
         },
-
-
+        studySessions: [studySessionSchema],
+        plans: [planSchema],
+        aiSettings: {
+            improvementThreshold: { type: Number, default: 15 },
+            planIntensity: { type: String, default: 'medium' }
+        }
     },
     {
         timestamps: true,
