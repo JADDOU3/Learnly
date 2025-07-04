@@ -21,7 +21,7 @@ app.use(cors({
 connectDB();
 
 app.use('/api/students', StudentRouter);
-app.use('/api/Grades' , GradeRouter);
+app.use('/api/grades' , GradeRouter);
 
 app.listen(5000 , () => {
     console.log("Server is running on http://localhost:5000/");

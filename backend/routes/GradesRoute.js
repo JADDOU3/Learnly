@@ -1,13 +1,14 @@
 import express from 'express';
 import GradesController from '../controllers/GradesController.js';
-
+import Authenticate from "../middleware/Authenticate.js";
 const router = express.Router();
 
-router.get('/:studentId' , GradesController.getGradesByStudent);
-router.post('/:studentId', GradesController.postGrade);
-router.get('/:subjectName', GradesController.getGradesBySubject);
+router.get('/' , Authenticate, GradesController.getGradesByStudent);
+router.post('/', Authenticate, GradesController.postGrade);
 
-router.put('/:studentId/:courseId', GradesController.updateGrade);
-router.delete('/:studentId/:courseId', GradesController.deleteGrade);
+router.get('/:subjectName', Authenticate, GradesController.getGradesBySubject);
+
+router.put('/me/:courseId', Authenticate, GradesController.updateGrade);
+router.delete('/me/:courseId', Authenticate, GradesController.deleteGrade);
 
 export default router;
