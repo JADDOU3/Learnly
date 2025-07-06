@@ -1,4 +1,4 @@
-import Plan from '../models/Plan';
+import Plan from '../models/Plan.js';
 import HTTP_STATUS from "../utils/Respones.js";
 
 const getPlans = async (req, res) => {
