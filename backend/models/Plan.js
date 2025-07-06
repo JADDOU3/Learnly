@@ -1,6 +1,6 @@
-import moongoose from 'mongoose'
+import mongoose from 'mongoose'
 
-const Plan = new moongoose.Schema({
+const Plan = new mongoose.Schema({
     activities: [{
         subject: String,
         duration: Number,
@@ -11,10 +11,15 @@ const Plan = new moongoose.Schema({
     isActive :{
         type: Boolean,
         default: false,
+    },
+    student : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Student',
+        required: true,
     }
     },{
     timestamps: true,
     }
 );
 
-export default moongoose.model('Plan', Plan)
+export default mongoose.model('Plan', Plan)
