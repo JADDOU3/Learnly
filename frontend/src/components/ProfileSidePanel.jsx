@@ -1,17 +1,39 @@
 import '../styles/ProfileSidePanel.css'
+import {useEffect, useState} from 'react';
+import getUserInfo  from '../api/getUserInfo.js';
+import logout from '../utils/logout.js'
 
 function ProfileSidePanel({setCurretCard}) {
-    let user = {
-        name:"heeh" ,
-        url:"https://avatars.githubusercontent.com/u/84065638?v=4" ,
-        title:"Full Stack Developer"
+    const [user , setUser] = useState(null);
+    const getInfo = async () => {
+        const data = await getUserInfo();
+        if(!data) {
+            setUser(null);
+            return;
+        }
+
+        setUser({
+            ...data,
+            url: data.url || data.image || "https://avatars.githubusercontent.com/u/84065638?v=4"
+        });
     }
+    //todo optimize code , remove duplicate code
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            getInfo();
+        }
+    },[]);
+
+    if (!user) {
+        return null;
+    }
+
     return(
         <div className="card profile-side-panel">
             <div className="summarized-profile">
                 <img src={user.url} alt="User" className="profile-avatar" />
                 <h2 className="profile-name">{user.name}</h2>
-                <p className="profile-title">{user.title}</p>
             </div>
 
             <div className="section">
@@ -50,7 +72,7 @@ function ProfileSidePanel({setCurretCard}) {
                     <p>Support</p>
                 </div>
 
-                <div className="menu-item logout">
+                <div className="menu-item logout" onClick={logout}>
                     <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     <p>Logout</p>
                 </div>

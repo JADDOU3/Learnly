@@ -1,5 +1,5 @@
-
 import '../styles/LoginForm.css'
+import Login from '../api/login.js'
 
 function LoginForm({onToggleForm}) {
     return (
@@ -51,32 +51,7 @@ const login =  async (e) => {
     e.preventDefault();
     const email = document.querySelector('input[type="email"]').value;
     const password = document.querySelector('input[type="password"]').value;
-    try{
-        const response = await fetch("http://localhost:5000/api/students/login" , {
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                email,
-                password
-            })
-        });
-
-
-        const data = await response.json();
-        if (!response.ok) {
-            alert(data.msg);
-            return;
-        }
-        alert("Login Successful");
-        localStorage.setItem("token", data.token);
-
-        window.location.href = "/";
-    }
-    catch(error){
-        console.log(error);
-    }
+    Login(email, password);
 }
 
 export default LoginForm

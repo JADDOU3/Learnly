@@ -1,31 +1,25 @@
 import '../styles/NavBar.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import  logout  from '../utils/logout.js';
+import getUserInfo from "../api/getUserInfo.js";
 
 function NavBar(){
     const [user, setUser] = useState(null);
     const getInfo = async () => {
-        try {
-            const response = await fetch("http://localhost:5000/api/students/me", {
-                headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("token")
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch user info");
-            }
-
-            const data = await response.json();
-            setUser({
-                ...data,
-                url: data.url || data.image || "https://avatars.githubusercontent.com/u/84065638?v=4"
-            });
-        } catch (error) {
-            console.error("Error fetching user info:", error);
+        const data = await getUserInfo();
+        if(!data) {
             setUser(null);
+            return;
         }
+
+        setUser({
+            ...data,
+            url: data.url || data.image || "https://avatars.githubusercontent.com/u/84065638?v=4"
+        });
     };
+
+    //todo optimize code , remove duplicate code
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
@@ -48,10 +42,6 @@ function NavBar(){
 
 function Login({user}){
     const navigate = useNavigate();
-    const logout = () => {
-        localStorage.removeItem("token");
-        window.location.href = "/";
-    };
     return (
         <div className="user-dropdown">
             <div onClick={() => navigate("/profile")} className="logged-in">
