@@ -6,11 +6,12 @@ const router = express.Router();
 
 router.get("/" , authenticate , PlanController.getPlans);
 router.post('/' , authenticate , PlanController.generatePlan);
-router.put('/' , authenticate , PlanController.updatePlan);
-router.delete('/' , authenticate , PlanController.deletePlan);
+
+router.put('/:id' , authenticate , PlanController.updatePlan);
+router.delete('/:id' , authenticate , PlanController.deletePlan);
 
 router.get("/active" , authenticate , PlanController.getActivePlan);
-router.get("/highestImprovement" , authenticate , PlanController.getHighestImprovement);
+router.get("/highestImprovement" , authenticate , PlanController.getHighestEstimatedImprovement);
 
 
 export default router;
