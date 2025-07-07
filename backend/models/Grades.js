@@ -4,10 +4,17 @@ import GRADES from '../utils/Grades.js';
 const GradesSchema = new mongoose.Schema(
     {
         grade: {
-            type: String,
+            type: Number,
             required: true,
-            enum: GRADES,
-            set: (grade) => grade.toUpperCase(),
+            enum: Object.values(GRADES),
+            set: (value) => {
+                if (typeof value === 'string') {
+                    const upper = value.toUpperCase();
+                    if (Object.keys(GRADES).includes(upper)) {
+                        return GRADES[upper];
+                    }
+                }
+            }
         },
         subject: {
             type: String,
