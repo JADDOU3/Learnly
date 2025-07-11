@@ -1,5 +1,9 @@
 import Plan from '../models/Plan.js';
 import HTTP_STATUS from "../utils/Respones.js";
+import Agent from "../ai/Agent.js"
+import Grades from "../models/Grades.js";
+import Student from "../models/Student.js";
+
 
 const getPlans = async (req, res) => {
     try{
@@ -33,7 +37,26 @@ const getActivePlan = async (req, res) => {
 }
 
 const generatePlan = async (req, res) => {
-    //todo implement ai to implement generate plan
+    try {
+        const student = await Student.findById(req.user.id);
+        const grades = await Grades.find({student: student.id});
+
+        if(!grades){
+            return res.status(HTTP_STATUS.NOT_FOUND).json({msg: "This user has no grades"});
+        }
+
+        const plans = await Agent(student , grades);
+    if(!plans){
+        return res.status(HTTP_STATUS.SERVER_ERROR).json({msg: "Failed to generate plan"});
+    }
+    const plan = new Plan(plans);
+    await plan.save();
+    res.status(HTTP_STATUS.OK).json(plans);
+
+    }
+    catch(error){
+        res.status(HTTP_STATUS.SERVER_ERROR).json({msg: error.message});
+    }
 }
 
 const getHighestEstimatedImprovement = async (req, res) => {

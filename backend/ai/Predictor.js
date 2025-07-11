@@ -1,13 +1,13 @@
 
 
-const PredictImprovement = (plan , trends) => {
+const PredictImprovement = (activities , trends) => {
     let score = 5;
 
-    plan.plan.forEach(day => {
-        if(trends[day.subject]?.weak){
+    activities.forEach(act => {
+        if (trends[act.subject]?.weak) {
             score += 2;
         }
-    })
+    });
 
     return Math.min(score , 25);
 }

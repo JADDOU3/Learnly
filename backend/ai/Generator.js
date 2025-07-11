@@ -1,6 +1,6 @@
 import LEARNING_STYLES from "../utils/LearningStyles.js";
 
-const Generator = async (trends , aiSettings , learningStyle) => {
+const Generator = (trends , aiSettings , learningStyle) => {
     const activity = [];
     const intensityMap  = {
         low: 30,
@@ -20,7 +20,7 @@ const Generator = async (trends , aiSettings , learningStyle) => {
             duration,
             method: methods[0],
             resources: [],
-        })
+        });
         return activity;
     }
 
@@ -31,8 +31,8 @@ const Generator = async (trends , aiSettings , learningStyle) => {
                 duration,
                 method: m,
                 resources: [`https://resources.example.com/${s.toLowerCase()}`],
-            })
-        })
+            });
+        });
     });
 
     return activity;

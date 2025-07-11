@@ -2,16 +2,18 @@ import Analyzer from "./Analyzer.js";
 import Generator from "./Generator.js";
 import PredictImprovement from "./Predictor.js";
 
-const Agent = (student , grades) => {
+const Agent = async (student , grades) => {
     const trends = Analyzer(grades);
-    const plans = Generator(trends , student.aiSettings , student.learningStyle);
+    const activities = Generator(trends , student.aiSettings , student.learningStyle);
 
-    const final = plans.map(plan => ({
-        ...plan,
-        improvement: PredictImprovement(plan, trends)
-    }));
+    const estimatedImprovement = PredictImprovement(activities , trends);
 
-    return final.filter(p => p.improvement >= 15);
+    return {
+        activities,
+        estimatedImprovement,
+        isActive: true,
+        student: student._id,
+    };
 }
 
 export default Agent;

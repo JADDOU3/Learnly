@@ -1,6 +1,6 @@
 import GRADES from "../utils/Grades.js";
 
-const analyzer = async (grades) => {
+const analyzer = (grades) => {
     const grouped = {};
     grades.forEach(g => {
         if (!grouped[g.subject]) grouped[g.subject] = [];
@@ -14,7 +14,7 @@ const analyzer = async (grades) => {
     const trends = {};
     for (const subject in grouped) {
         const subjectGrades = grouped[subject]
-            .map(g => GRADES[g.grade] || 0)
+            .map(g => typeof g.grade === 'number' ? g.grade : GRADES[g.grade] || 0)
             .filter(score => score > 0);
 
         if (subjectGrades.length === 0) continue;
