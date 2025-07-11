@@ -3,7 +3,7 @@ import HTTP_STATUS from "../utils/Respones.js";
 import Agent from "../ai/Agent.js"
 import Grades from "../models/Grades.js";
 import Student from "../models/Student.js";
-
+import getHighestImprovementPlan from '../utils/HighestImprovementPlan.js'
 
 const getPlans = async (req, res) => {
     try{
@@ -25,7 +25,8 @@ const getActivePlan = async (req, res) => {
             res.status(HTTP_STATUS.NOT_FOUND).json({msg: "This user has no plans"});
         }
 
-        const activePlan = await plans.find(p => p.active === true);
+        const activePlan = await plans.find(p => p.isActive === true);
+
         if(!activePlan){
             return res.status(HTTP_STATUS.NOT_FOUND).json({msg: "All plans are inactive."});
         }
@@ -82,12 +83,12 @@ const deletePlan = async (req, res) => {
     try{
         const plans = await Plan.find({student : req.user.id});
         if(!plans){
-            res.status(HTTP_STATUS.NOT_FOUND).json({msg: "This user has no plans"});
+            return res.status(HTTP_STATUS.NOT_FOUND).json({msg: "This user has no plans"});
         }
-        const plan = await plans.findById(req.params.id);
+        const plan = await Plan.findById(req.params.id);
 
         if(!plan){
-            res.status(HTTP_STATUS.NOT_FOUND).json({msg: "Plan not found"});
+            return res.status(HTTP_STATUS.NOT_FOUND).json({msg: "Plan not found"});
         }
 
         await Plan.findOneAndDelete(plan);
@@ -108,14 +109,5 @@ const plans = {
     deletePlan,
 };
 
-const getHighestImprovementPlan = (plans) => {
-    let highest = plans.get[0];
-    for(let i = 1; i < plans.length; i++){
-        if(highest.estimatedImprovement < plans[i].estimatedImprovement){
-            highest = plans[i];
-        }
-    }
-    return highest;
-}
 
 export default plans;
