@@ -24,7 +24,7 @@ const StudentSchema = new mongoose.Schema(
         },
         learningStyle:{
             type: String,
-            enum: LEARNING_STYLES,
+            enum: Object.keys(LEARNING_STYLES),
             default: 'visual'
         },
         aiSettings: {
