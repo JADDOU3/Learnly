@@ -1,22 +1,19 @@
 import GRADES from "../utils/Grades.js";
 
 const analyzer = async (grades) => {
-    const subjectScore = {};
-
-    grades.forEach(grade => {
-        if(!subjectScore[grade.subject]){
-            subjectScore[grade.subject] =[];
-        }
-        subjectScore[grade.subject].push(grade.grade);
+    const grouped = {};
+    grades.forEach(g => {
+        if (!grouped[g.subject]) grouped[g.subject] = [];
+        grouped[g.subject].push(g);
     });
 
-    for (const subject in subjectScore) {
-        subjectScore[subject].sort((a, b) => a.semester.localeCompare(b.semester));
+    for (const subject in grouped) {
+        grouped[subject].sort((a, b) => a.semester.localeCompare(b.semester));
     }
 
     const trends = {};
-    for (const subject in subjectScore) {
-        const subjectGrades = subjectScore[subject]
+    for (const subject in grouped) {
+        const subjectGrades = grouped[subject]
             .map(g => GRADES[g.grade] || 0)
             .filter(score => score > 0);
 
