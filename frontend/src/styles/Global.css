@@ -63,6 +63,12 @@
     font-size: 14px;
 }
 
+.big-btn {
+    padding: 16px 36px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .primary-btn:hover {
     background: var(--primary-hover);
     transform: translateY(-1px);
