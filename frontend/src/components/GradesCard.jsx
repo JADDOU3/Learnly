@@ -1,14 +1,24 @@
 import '../styles/GradeCard.css';
+import getUserGrades from "../api/getUserGrades.js";
+import { useEffect, useState } from 'react';
 
 function GradesCard() {
-    const grades = [
-        { semester: "Fall 2023", subject: "Mathematics", grade: "A" },
-        { semester: "Fall 2023", subject: "Physics", grade: "B+" },
-        { semester: "Spring 2024", subject: "Computer Science", grade: "A" },
-        { semester: "Spring 2024", subject: "Literature", grade: "A-" },
-        { semester: "Summer 2024", subject: "Chemistry", grade: "C" },
-    ];
+    const [grades , setGrades] = useState([]);
 
+    const getGrades = async () => {
+        const data = await getUserGrades();
+        if(!data) {
+            setGrades(null);
+            return;
+        }
+        setGrades(data);
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+             getGrades();
+        }
+    });
     return (
         <div className="card grades-card">
             <div className="profile-header">
@@ -25,6 +35,7 @@ function GradesCard() {
                         <th>Semester</th>
                         <th>Subject</th>
                         <th>Grade</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +46,10 @@ function GradesCard() {
                                 <td>{grade.subject}</td>
                                 <td className={`grade-cell grade-${grade.grade[0]}`}>
                                     {grade.grade}
+                                </td>
+                                <td className="actions-cell">
+                                    <i className="fa-solid fa-pen-to-square icon-btn edit-btn" title="Edit"></i>
+                                    <i className="fa-solid fa-trash icon-btn delete-btn" title="Delete"></i>
                                 </td>
                             </tr>
                         ))
