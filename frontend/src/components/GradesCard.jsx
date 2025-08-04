@@ -52,42 +52,43 @@ function GradesCard() {
                         <AddGradeCard />
                     </div>
                 )}
-
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Semester</th>
-                        <th>Subject</th>
-                        <th>Grade</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {grades?.length > 0 ? (
-                        grades.map((grade, index) => (
-                            <tr key={index}>
-                                <td>{grade.semester}</td>
-                                <td>{grade.subject}</td>
-                                <td className={`grade-cell grade-${grade.grade[0]}`}>
-                                    {grade.grade}
-                                </td>
-                                <td className="actions-cell">
-                                    <i className="fa-solid fa-pen-to-square icon-btn edit-btn" title="Edit"></i>
-                                    <i className="fa-solid fa-trash icon-btn delete-btn" title="Delete"></i>
+                <div className="table-container">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Semester</th>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {grades?.length > 0 ? (
+                            grades.map((grade, index) => (
+                                <tr key={index}>
+                                    <td>{grade.semester}</td>
+                                    <td>{grade.subject}</td>
+                                    <td className={`grade-cell grade-${grade.grade[0]}`}>
+                                        {grade.grade}
+                                    </td>
+                                    <td className="actions-cell">
+                                        <i className="fa-solid fa-pen-to-square icon-btn edit-btn" title="Edit"></i>
+                                        <i className="fa-solid fa-trash icon-btn delete-btn" title="Delete"></i>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="4">
+                                    <div className="empty-state">
+                                        <p>No grades recorded yet</p>
+                                    </div>
                                 </td>
                             </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="3">
-                                <div className="empty-state">
-                                    <p>No grades recorded yet</p>
-                                </div>
-                            </td>
-                        </tr>
-                    )}
-                    </tbody>
-                </table>
+                        )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

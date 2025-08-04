@@ -19,8 +19,6 @@
 .grades-card table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -146,6 +144,20 @@
         opacity: 0;
         transform: translateY(-20px);
     }
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+}
+
+.table-container thead  {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 
