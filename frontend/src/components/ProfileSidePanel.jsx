@@ -1,29 +1,9 @@
 import '../styles/ProfileSidePanel.css'
-import {useEffect, useState} from 'react';
-import getUserInfo  from '../api/getUserInfo.js';
 import logout from '../utils/logout.js'
+import useUserInfo from "../hooks/useUserInfo";
 
 function ProfileSidePanel({setCurretCard}) {
-    const [user , setUser] = useState(null);
-    const getInfo = async () => {
-        const data = await getUserInfo();
-        if(!data) {
-            setUser(null);
-            return;
-        }
-
-        setUser({
-            ...data,
-            url: data.url || data.image || "https://avatars.githubusercontent.com/u/84065638?v=4"
-        });
-    }
-    //todo optimize code , remove duplicate code
-
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            getInfo();
-        }
-    },[]);
+    const user = useUserInfo();
 
     if (!user) {
         return null;

@@ -1,31 +1,10 @@
 import '../styles/NavBar.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react';
 import  logout  from '../utils/logout.js';
-import getUserInfo from "../api/getUserInfo.js";
+import useUserInfo from "../hooks/useUserInfo";
 
 function NavBar(){
-    const [user, setUser] = useState(null);
-    const getInfo = async () => {
-        const data = await getUserInfo();
-        if(!data) {
-            setUser(null);
-            return;
-        }
-
-        setUser({
-            ...data,
-            url: data.url || data.image || "https://avatars.githubusercontent.com/u/84065638?v=4"
-        });
-    };
-
-    //todo optimize code , remove duplicate code
-
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            getInfo();
-        }
-    });
+    const user = useUserInfo();
 
     return (
        <nav className="navbar">

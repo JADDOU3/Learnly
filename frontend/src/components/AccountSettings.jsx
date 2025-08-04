@@ -1,8 +1,14 @@
 import '../styles/AccountSettings.css'
+import useUserInfo from "../hooks/useUserInfo";
 
 function AccountSettings() {
-    const user = {email:"meow@gmail.com"};
-   return(
+    const user = useUserInfo();
+
+    if(!user){
+        return null;
+    }
+
+    return(
        <div className="card profile-card">
            <div className="profile-header">
                 <h2>Account Settings</h2>
