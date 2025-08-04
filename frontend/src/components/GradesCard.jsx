@@ -1,9 +1,24 @@
 import '../styles/GradeCard.css';
 import getUserGrades from "../api/getUserGrades.js";
+import AddGradeCard from "./AddGradeCard.jsx";
 import { useEffect, useState } from 'react';
 
 function GradesCard() {
     const [grades , setGrades] = useState([]);
+    const [card , showCard] = useState(false);
+    const [animateOut, setAnimateOut] = useState(false);
+
+    const toggleGradeCard = () => {
+        if (card) {
+            setAnimateOut(true);
+            setTimeout(() => {
+                showCard(false);
+                setAnimateOut(false);
+            }, 400);
+        } else {
+            showCard(true);
+        }
+    };
 
     const getGrades = async () => {
         const data = await getUserGrades();
@@ -12,13 +27,14 @@ function GradesCard() {
             return;
         }
         setGrades(data);
-    }
+    };
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-             getGrades();
+            getGrades();
         }
-    });
+    }, []);
+
     return (
         <div className="card grades-card">
             <div className="profile-header">
@@ -26,8 +42,16 @@ function GradesCard() {
             </div>
             <div className="details-section">
                 <div className="add-btn-container">
-                    <button className="primary-btn">Add Grade</button>
+                    <button onClick={toggleGradeCard} className="primary-btn">
+                        {card ? "Close" : "Add Grade"}
+                    </button>
                 </div>
+
+                {card && (
+                    <div className={`add-grade-card-container ${animateOut ? "slide-fade-out" : "slide-fade-in"}`}>
+                        <AddGradeCard />
+                    </div>
+                )}
 
                 <table>
                     <thead>
@@ -39,7 +63,7 @@ function GradesCard() {
                     </tr>
                     </thead>
                     <tbody>
-                    {grades.length > 0 ? (
+                    {grades?.length > 0 ? (
                         grades.map((grade, index) => (
                             <tr key={index}>
                                 <td>{grade.semester}</td>
@@ -57,11 +81,6 @@ function GradesCard() {
                         <tr>
                             <td colSpan="3">
                                 <div className="empty-state">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                        <polyline points="7 10 12 15 17 10"></polyline>
-                                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                                    </svg>
                                     <p>No grades recorded yet</p>
                                 </div>
                             </td>
@@ -71,7 +90,7 @@ function GradesCard() {
                 </table>
             </div>
         </div>
-    )
+    );
 }
 
 export default GradesCard;
